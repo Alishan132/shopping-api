@@ -11,13 +11,13 @@ const authController = require("./auth.controller")
 //Signup the user
 router.post("/signup",
     [
-        check("email", "The email cannot be empthy").notEmpty(),
+        check("email", "The email cannot be empty").notEmpty(),
         check("password").isLength({min:4, max: 12}).withMessage("The password must be more than 4 and less than 12 characters")
     ],
     authController.signup
     )
 
 //Signin the user
-router.post("/signin", authController.sigin)
+router.post("/signin", authController.signin)
 
 module.exports = router 

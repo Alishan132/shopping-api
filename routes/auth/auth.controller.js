@@ -40,7 +40,7 @@ class authController {
         })
         await newUser.save()
 
-        res.status(201).json("User Registered Succesfully")
+        res.status(201).json( {newUser} )
         } catch (e) {
             console.log(e)
             res.status(400).json("Registration error")
@@ -48,7 +48,7 @@ class authController {
     
     }
 //SIGNIN controller
-    async sigin(req, res){
+    async signin(req, res){
         try {
            const { email, password } = req.body
            const existingUser = await UserSchema.findOne({email})
