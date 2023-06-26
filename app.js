@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const userRoute = require("./routes/user");
+const favoritesRoute = require("./routes/favoriteItem");
 const cartItemRoute = require("./routes/cartItem");
 
 const app = express();
@@ -18,7 +18,7 @@ mongoose
 app.use(express.json());
 
 // ROUTES
-app.use("/api/users", userRoute);
+app.use("/api/favorites", favoritesRoute);
 // app.use("/api/auth");
 // app.use("/api/users");
 app.use("/api/cart", cartItemRoute);
