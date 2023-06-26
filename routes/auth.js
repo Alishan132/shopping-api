@@ -5,7 +5,7 @@ const { check } = require("express-validator")
 const router = express.Router()
 
 //CONTROLLERS
-const authController = require("./auth.controller")
+const authController = require("../controllers/auth.controller")
 
 //ENDPOINTS
 //Signup the user

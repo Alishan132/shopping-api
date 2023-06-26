@@ -5,7 +5,7 @@ const { validationResult } = require("express-validator")
 require("dotenv").config()
 
 //SCHEMA from mongoDB
-const UserSchema = require("../../models/user.model") 
+const UserSchema = require("../models/user.model") 
 
 //FUNCTION to generate token
 async function generateToken(id, email) {
@@ -60,7 +60,18 @@ class authController {
             return res.status(403).json("Invalid password.")
            } 
            const token = await generateToken(existingUser._id,existingUser.email)
-           res.status(200).json({ token })
+           
+           res.status(200).json(
+            {
+            user: {
+               _id: existingUser._id,
+                email: existingUser.email, 
+                password: existingUser.password,
+                __v: existingUser.__v,
+                token
+            } 
+            }
+         )
         } catch (e) {
             console.log(e)
             res.status(400).json("Login error")

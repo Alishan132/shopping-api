@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 
 const userRoute = require("./routes/user");
 const cartItemRoute = require("./routes/cartItem");
-const authRouter = require("./routes/auth/auth.router")
+const authRouter = require("./routes/auth")
 const app = express();
 dotenv.config();
 
